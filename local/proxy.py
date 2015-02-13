@@ -878,7 +878,7 @@ class PacUtil(object):
         listen_ip = '127.0.0.1'
         autoproxy = '%s:%s' % (listen_ip, common.LISTEN_PORT)
         blackhole = '%s:%s' % (listen_ip, common.PAC_PORT)
-        default = 'PROXY %s:%s' % (common.PROXY_HOST, common.PROXY_PORT) if common.PROXY_ENABLE else 'DIRECT'
+        default = 'PROXY %s:%s' % (common.PROXY_HOST, common.PROXY_PORT) if common.PROXY_ENABLE or common.PAC_IP != '0.0.0.0' else 'DIRECT'
         content = ''
         need_update = True
         with open(filename, 'rb') as fp:
